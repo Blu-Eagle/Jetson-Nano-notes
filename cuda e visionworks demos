@@ -1,0 +1,28 @@
+
+CUDA DEMOS
+
+/usr/local/cuda
+
+go to /usr/local/cuda/bin
+
+run 
+cuda-install-samples.sh ~
+
+go home and in NVIDIA .... run make
+in bin/...... there are all the executibles
+
+
+........................................
+
+VISIONWORKS DEMOS
+
+/usr/share/visionworks-tracking/sources
+
+/usr/share/visionworks-sfm/sources
+
+/usr/share/visionworks/sources
+
+
+run install samples.sh ~
+go home enter visionwors directory and run make
+in bin/...... there are all the executiblesl
