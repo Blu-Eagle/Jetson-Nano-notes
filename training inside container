@@ -1,0 +1,27 @@
+train  detection
+$ cd jetson-inference/python/training/detection/ssd
+$ python3 train_ssd.py --dataset-type=voc --data=data/<YOUR-DATASET> --model-dir=models/<YOUR-MODEL>
+
+train conversion
+python3 onnx_export.py --model-dir=models/<YOUR-MODEL>
+
+model usage
+NET=models/<YOUR-MODEL>
+
+detectnet --model=$NET/ssd-mobilenet.onnx --labels=$NET/labels.txt \
+          --input-blob=input_0 --output-cvg=scores --output-bbox=boxes \
+            csi://0
+
+train classification
+$ cd jetson-inference/python/training/classification
+$ python3 train.py --model-dir=models/cat_dog data/cat_dog
+
+model usage afer conversion to ONNX
+NET=models/cat_dog
+DATASET=data/cat_dog
+
+# C++
+imagenet --model=$NET/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/cat/01.jpg cat.jpg
+
+# Python
+imagenet.py --model=$NET/cat_dog/resnet18.onnx --input_blob=input_0 --output_blob=output_0 --labels=$DATASET/labels.txt $DATASET/test/cat/01.jpg cat.jpg
