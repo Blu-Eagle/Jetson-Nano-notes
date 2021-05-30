@@ -1,1 +1,3 @@
-sudo dpkg-reconfigure lightd
+sudo dpkg-reconfigure lightd  #this is the display manager
+
+to change the window manager from gnome to  LXDE you have to log-out and do it from there
