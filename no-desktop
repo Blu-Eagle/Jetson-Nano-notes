@@ -1,0 +1,8 @@
+$ sudo init 3     # stop the desktop
+# log your user back into the console
+# run the PyTorch training scripts
+$ sudo init 5     # restart the desktop
+If you wish to make this persistent across reboots, you can use the follow commands to change the boot-up behavior:
+
+$ sudo systemctl set-default multi-user.target     # disable desktop on boot
+$ sudo systemctl set-default graphical.target      # enable desktop on boot
