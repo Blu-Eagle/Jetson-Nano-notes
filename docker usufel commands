@@ -1,1 +1,15 @@
 sudo docker image ls  #to list images
+sudo docker volume ls     #to list volumes
+sudo docker container #to list containers
+sudo docker network ls  # to list networks
+
+you get something like
+
+REPOSITORY                      TAG                 IMAGE ID       CREATED        SIZE
+nvcr.io/nvidia/deepstream-l4t   5.1-21.02-samples   30ff77669c10   3 months ago   2.72GB
+dustynv/jetson-inference        r32.5.0             ccc2a5f19dad   4 months ago   2.89GB
+
+sudo docker image rm 30ff77669c10  # to delete the first
+
+//// to stop and remove all containers
+sudo docker container stop $(docker container ls -aq)
